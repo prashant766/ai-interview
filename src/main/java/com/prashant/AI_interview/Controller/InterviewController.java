@@ -6,6 +6,7 @@ import com.prashant.AI_interview.service.InterviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/interview")
 public class InterviewController {
@@ -19,3 +20,5 @@ public class InterviewController {
     }
 
 }
+
+
