@@ -25,12 +25,28 @@ public class AIService {
     public String askAI(String prompt) {
 
         Map<String, Object> requestBody = Map.of(
-                "model", "llama-3.1-8b-instant",  // ← This line
+                "model", "llama-3.1-8b-instant",
                 "messages", List.of(
+
+                        Map.of(
+                                "role", "system",
+                                "content", """
+You are a technical interviewer.
+
+Rules:
+1. Start with very basic beginner questions.
+2. Increase difficulty gradually.
+3. Ask only ONE question at a time.
+4. When the candidate answers, give feedback and a score out of 10.
+5. Then ask the next slightly harder question.
+"""
+                        ),
+
                         Map.of(
                                 "role", "user",
                                 "content", prompt
                         )
+
                 ),
                 "temperature", 0.7
         );
